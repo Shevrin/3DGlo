@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("one"),console.log("two")})();
+(()=>{"use strict";(()=>{console.log("one");const e=document.querySelector("#timer-hours"),o=document.querySelector("main"),t=document.getElementById("timer-minutes"),n=document.getElementById("timer-seconds");console.log(o),console.log(e),console.log(t),console.log(n)})(),console.log("two")})();

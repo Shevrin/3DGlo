@@ -1,5 +1,6 @@
-import one from "./modules/one"
-import two from "./modules/two"
+import timer from "./modules/timer"
+import menu from "./modules/menu"
 
-one()
-two()
+const deadline = '30 december 2021 21:42'
+timer(deadline)
+menu()

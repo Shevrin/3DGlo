@@ -32,6 +32,7 @@ const timer = (deadline) => {
 
 	const updateClock = () => {
 		let getTime = getTimeRemaining()
+		// console.log('getTime');
 		timerDays.textContent = getTime.days
 		timerHours.textContent = (getTime.houres < 10) ? '0' + getTime.houres : getTime.houres
 		timerMinutes.textContent = (getTime.minutes < 10) ? '0' + getTime.minutes : getTime.minutes
@@ -44,7 +45,7 @@ const timer = (deadline) => {
 
 		/**setInterval */
 		let interval = setInterval(() => {
-			if (getTime.seconds > 0) {
+			if (getTime.timeRemaining > 0) {
 				updateClock()
 				clearInterval(interval)
 			}

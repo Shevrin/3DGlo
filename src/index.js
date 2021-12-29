@@ -1,6 +1,9 @@
 import timer from "./modules/timer"
 import menu from "./modules/menu"
+import modal from "./modules/modal"
 
-const deadline = '30 december 2021 21:42'
+const deadline = '01 january 2022 00:00'
+
 timer(deadline)
 menu()
+modal()

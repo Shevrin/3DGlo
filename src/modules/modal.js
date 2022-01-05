@@ -3,7 +3,7 @@ const modal = () => {
 	const modal = document.querySelector('.popup')
 	const closeBtn = modal.querySelector('.popup-close')
 	const widthScreen = document.documentElement.offsetWidth
-	const submitBtn = modal.querySelector('.form-btn')
+	// const submitBtn = modal.querySelector('.form-btn')
 	let opacity = 0
 
 	const openModal = () => {
@@ -38,10 +38,6 @@ const modal = () => {
 	closeBtn.addEventListener('click', () => {
 		widthScreen >= '768' ? closeModal() : modal.style.display = ''
 	})
-
-
-	console.log(modal);
-	console.log(popupBtn);
 
 }
 export default modal

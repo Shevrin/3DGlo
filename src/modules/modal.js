@@ -1,7 +1,7 @@
 const modal = () => {
 	const popupBtn = document.querySelectorAll('.popup-btn')
 	const modal = document.querySelector('.popup')
-	const closeBtn = modal.querySelector('.popup-close')
+	// const closeBtn = modal.querySelector('.popup-close')
 	const widthScreen = document.documentElement.offsetWidth
 	// const submitBtn = modal.querySelector('.form-btn')
 	let opacity = 0
@@ -35,9 +35,15 @@ const modal = () => {
 		widthScreen >= '768' ? openModal() : modal.style.display = 'block'
 	}
 	))
-	closeBtn.addEventListener('click', () => {
-		widthScreen >= '768' ? closeModal() : modal.style.display = ''
+
+	modal.addEventListener('click', (e) => {
+		if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+			widthScreen >= '768' ? closeModal() : modal.style.display = ''
+		}
 	})
+	// closeBtn.addEventListener('click', () => {
+	// 	widthScreen >= '768' ? closeModal() : modal.style.display = ''
+	// })
 
 }
 export default modal

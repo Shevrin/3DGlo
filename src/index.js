@@ -3,6 +3,7 @@ import menu from './modules/menu'
 import modal from './modules/modal'
 import calc from './modules/calc'
 import validation from './modules/validation'
+import tabs from './modules/tabs'
 
 const deadline = '13 january 2022 00:00'
 
@@ -11,3 +12,4 @@ menu()
 modal()
 calc()
 validation()
+tabs()

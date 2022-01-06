@@ -7,11 +7,12 @@ import tabs from './modules/tabs'
 import slider from './modules/slider'
 
 const deadline = '13 january 2022 00:00'
+const price = 100
 
 timer(deadline)
 menu()
 modal()
-calc()
+calc(price)
 validation()
 tabs()
 slider()

@@ -4,6 +4,7 @@ import modal from './modules/modal'
 import calc from './modules/calc'
 import validation from './modules/validation'
 import tabs from './modules/tabs'
+import slider from './modules/slider'
 
 const deadline = '13 january 2022 00:00'
 
@@ -13,3 +14,4 @@ modal()
 calc()
 validation()
 tabs()
+slider()

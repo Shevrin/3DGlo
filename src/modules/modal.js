@@ -33,7 +33,7 @@ const modal = () => {
 				return timeFraction
 			},
 			draw(progress) {
-				if (modal.style.opacity > 0) {
+				if (Math.floor(modal.style.opacity * 10) > 0) {
 					modal.style.opacity = 1 - progress
 				} else {
 					modal.style.display = ''

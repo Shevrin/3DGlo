@@ -1,37 +1,59 @@
+import { animate } from './helper'
+
 const modal = () => {
 	const popupBtn = document.querySelectorAll('.popup-btn')
 	const modal = document.querySelector('.popup')
-	// const closeBtn = modal.querySelector('.popup-close')
 	const widthScreen = document.documentElement.offsetWidth
-	// const submitBtn = modal.querySelector('.form-btn')
-	let opacity = 0
-
+	let opacity = 1
 	const openModal = () => {
 		modal.style.display = 'block'
-		modal.style.opacity = opacity
-		const anim = () => {
-			opacity += 0.1
-			modal.style.opacity = opacity
-			if (opacity < 1) requestAnimationFrame(anim)
-		}
-		requestAnimationFrame(anim)
+		modal.style.opacity = 0
+
+		animate({
+			duration: 130,
+			timing(timeFraction) {
+				return timeFraction
+			},
+			draw(progress) {
+				modal.style.opacity = 0 + progress
+			}
+		})
+		// const anim = () => {
+		// 	opacity += 0.1
+		// 	modal.style.opacity = opacity
+		// 	if (opacity < 1) requestAnimationFrame(anim)
+		// }
+		// requestAnimationFrame(anim)
 	}
 
 	const closeModal = () => {
-		const anim = () => {
-			opacity -= 0.1
-			modal.style.opacity = opacity
-			if (opacity > 0) {
-				requestAnimationFrame(anim)
-			} else {
-				modal.style.display = ''
+		animate({
+			duration: 130,
+			timing(timeFraction) {
+				return timeFraction
+			},
+			draw(progress) {
+				if (modal.style.opacity > 0) {
+					modal.style.opacity = 1 - progress
+				} else {
+					modal.style.display = ''
+				}
 			}
-		}
-		requestAnimationFrame(anim)
+		})
+
+		// 	const anim = () => {
+		// 		opacity -= 0.1
+		// 		modal.style.opacity = opacity
+		// 		if (opacity > 0) {
+		// 			requestAnimationFrame(anim)
+		// 		} else {
+		// 			modal.style.display = ''
+		// 		}
+		// 	}
+		// 	requestAnimationFrame(anim)
 	}
 
 	popupBtn.forEach(item => item.addEventListener('click', () => {
-		console.log(widthScreen);
 		widthScreen >= '768' ? openModal() : modal.style.display = 'block'
 	}
 	))
@@ -41,10 +63,8 @@ const modal = () => {
 			widthScreen >= '768' ? closeModal() : modal.style.display = ''
 		}
 	})
-	// closeBtn.addEventListener('click', () => {
-	// 	widthScreen >= '768' ? closeModal() : modal.style.display = ''
-	// })
 
 }
+
 export default modal
 

@@ -15,6 +15,9 @@ const validation = () => {
 				alert('Введите имя на кирилице')
 				item.value = ''
 			}
+			if (regName.test(item.value)) {
+				item.classList.add('success')
+			}
 		})
 	})
 
@@ -26,6 +29,9 @@ const validation = () => {
 				alert('Некорректный e-mail')
 				item.value = ''
 			}
+			if (regEmail.test(item.value)) {
+				item.classList.add('success')
+			}
 		})
 	})
 
@@ -35,6 +41,9 @@ const validation = () => {
 			if (!regPhone.test(item.value)) {
 				alert('Некорректный номер телефона')
 				item.value = ''
+			}
+			if (regPhone.test(item.value)) {
+				item.classList.add('success')
 			}
 		})
 	})

@@ -31,7 +31,7 @@ const validation = () => {
 
 	inputPhone.forEach(item => {
 		item.value = ''
-		item.addEventListener('input', () => {
+		item.addEventListener('change', () => {
 			if (!regPhone.test(item.value)) {
 				alert('Некорректный номер телефона')
 				item.value = ''

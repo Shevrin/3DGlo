@@ -26,3 +26,7 @@ sendForm({
 		}
 	]
 })
+sendForm({
+	formId: 'form3',
+
+})

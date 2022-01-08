@@ -3,8 +3,9 @@ import { animate } from './helper'
 const modal = () => {
 	const popupBtn = document.querySelectorAll('.popup-btn')
 	const modal = document.querySelector('.popup')
+	const inputs = modal.querySelectorAll('input')
 	const widthScreen = document.documentElement.offsetWidth
-	let opacity = 1
+	let validate = false
 	const openModal = () => {
 		modal.style.display = 'block'
 		modal.style.opacity = 0
@@ -27,6 +28,7 @@ const modal = () => {
 	}
 
 	const closeModal = () => {
+		console.log('close');
 		animate({
 			duration: 130,
 			timing(timeFraction) {
@@ -59,11 +61,17 @@ const modal = () => {
 	))
 
 	modal.addEventListener('click', (e) => {
-		if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+		inputs.forEach(input => {
+			if (input.classList.contains('success')) {
+				validate = true
+			}
+		})
+		if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')
+			|| (e.target.classList.contains('form-btn') && validate)) {
+
 			widthScreen >= '768' ? closeModal() : modal.style.display = ''
 		}
 	})
-
 }
 
 export default modal

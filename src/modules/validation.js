@@ -24,7 +24,6 @@ const validation = () => {
 	inputEmail.forEach(item => {
 		item.value = ''
 		item.addEventListener('change', () => {
-			console.log(regEmail.test(item.value));
 			if (!regEmail.test(item.value)) {
 				alert('Некорректный e-mail')
 				item.value = ''

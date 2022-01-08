@@ -27,6 +27,15 @@ sendForm({
 	]
 })
 sendForm({
+	formId: 'form2',
+	someElement: [
+		{
+			type: 'input',
+			id: 'form2-message'
+		}
+	]
+})
+sendForm({
 	formId: 'form3',
 
 })

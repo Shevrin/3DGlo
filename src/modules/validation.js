@@ -2,6 +2,8 @@ const validation = () => {
 	const inputPhone = document.querySelectorAll('.form-phone')
 	const inputEmail = document.querySelectorAll('.form-email')
 	const inputName = document.querySelectorAll('.form-name')
+	const topForm = document.getElementById('form2-name')
+	const formMessage = document.getElementById('form2-message')
 	// const submitBtn = document.querySelectorAll('button[type=submit]')
 	let regName = /^([а-яА-Я]+\s)*[а-яА-Я]*$/
 	let regEmail = /^(((\w*\.)|(\w*\-))*\w*)@(\w*\.)+([a-z]+)$/
@@ -19,6 +21,26 @@ const validation = () => {
 				item.classList.add('success')
 			}
 		})
+	})
+
+	topForm.addEventListener('input', () => {
+		if (!regName.test(topForm.value)) {
+			alert('Введите имя на кирилице')
+			topForm.value = ''
+		}
+		if (regName.test(topForm.value)) {
+			topForm.classList.add('success')
+		}
+	})
+
+	formMessage.addEventListener('input', () => {
+		if (!regName.test(formMessage.value)) {
+			alert('Введите текст на кирилице')
+			formMessage.value = ''
+		}
+		if (regName.test(formMessage.value)) {
+			formMessage.classList.add('success')
+		}
 	})
 
 	inputEmail.forEach(item => {

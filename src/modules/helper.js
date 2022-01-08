@@ -19,3 +19,29 @@ const animate = ({ timing, draw, duration }) => {
 	});
 }
 export { animate }
+
+const browserSupportsCSSProperty = (propertyName) => {
+	const elm = document.createElement('div');
+	propertyName = propertyName.toLowerCase();
+
+	if (elm.style[propertyName] != undefined)
+		return true;
+
+	const propertyNameCapital = propertyName.charAt(0).toUpperCase() + propertyName.substr(1),
+		domPrefixes = 'Webkit Moz ms O'.split(' ');
+
+	for (const i = 0; i < domPrefixes.length; i++) {
+		if (elm.style[domPrefixes[i] + propertyNameCapital] != undefined)
+			return true;
+	}
+
+	return false;
+}
+
+// Use it to check for animation support:
+
+if (!browserSupportsCSSProperty('animation')) {
+	// fallback…
+}
+
+export { browserSupportsCSSProperty }

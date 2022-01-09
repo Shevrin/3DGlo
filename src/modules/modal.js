@@ -31,7 +31,6 @@ const modal = () => {
 	}
 
 	popupBtn.forEach(item => item.addEventListener('click', () => {
-		console.log(widthScreen);
 		widthScreen >= '768' ? openModal() : modal.style.display = 'block'
 	}
 	))

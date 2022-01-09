@@ -1,3 +1,4 @@
+
 const menu = () => {
 	const menuBtn = document.querySelector('.menu')
 	const menu = document.querySelector('menu')
@@ -17,7 +18,11 @@ const menu = () => {
 
 	closeBrn.addEventListener('click', handleMenu)
 
-	menuItems.forEach(item => item.addEventListener('click', handleMenu))
+
+	menuItems.forEach(item => item.addEventListener('click', () => {
+		handleMenu
+	}))
+
 }
 
 export default menu

@@ -1,32 +1,21 @@
 const menu = () => {
-	const menuBtn = document.querySelector('.menu')
+	// const menuBtn = document.querySelector('.menu')
 	const menu = document.querySelector('menu')
+	const body = document.querySelector('body')
 	// const closeBrn = menu.querySelector('.close-btn')
 	// const menuItems = menu.querySelectorAll('ul>li>a')
 
 	const handleMenu = () => {
-		// if (!menu.style.transform) {
-		// 	menu.style.transform = `translateX(00%)`
-		// } else {
-		// 	menu.style.transform = ''
-		// }
 		menu.classList.toggle('active-menu')
 	}
 
-	menuBtn.addEventListener('click', handleMenu)
+	body.addEventListener('click', (e) => {
 
-	menu.addEventListener('click', (e) => {
-		if (e.target.classList.contains('close-btn') || e.target.matches('a')) {
-			handleMenu()
-		} else {
-
+		if (e.target.classList.contains('close-btn') || e.target.matches('a') ||
+			e.target.classList.contains('.menu') || !e.target.matches('menu')) {
+			handleMenu();
 		}
 	})
-
-
-	// closeBrn.addEventListener('click', handleMenu)
-
-	// menuItems.forEach(item => item.addEventListener('click', handleMenu))
 }
 
 export default menu

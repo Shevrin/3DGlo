@@ -11,7 +11,7 @@ const menu = () => {
 
 	body.addEventListener('click', (e) => {
 
-		if (e.target.classList.contains('close-btn') || e.target.matches('a')
+		if (e.target.classList.contains('close-btn') || e.target.matches('menu>ul>li>a')
 			|| e.target.closest('.menu')) {
 			handleMenu();
 		}

@@ -5,7 +5,7 @@ const modal = () => {
 	const modal = document.querySelector('.popup')
 	const inputs = modal.querySelectorAll('input')
 	const widthScreen = document.documentElement.offsetWidth
-	let validate = false
+	let validate = 0
 	const openModal = () => {
 		modal.style.display = 'block'
 		modal.style.opacity = 0
@@ -28,11 +28,11 @@ const modal = () => {
 	}
 
 	const closeModal = () => {
+		console.log(validate);
 		inputs.forEach(input => {
 			input.classList.remove('success')
 			input.value = ''
 		})
-		console.log('close');
 		animate({
 			duration: 130,
 			timing(timeFraction) {
@@ -65,16 +65,20 @@ const modal = () => {
 	))
 
 	modal.addEventListener('click', (e) => {
+		validate = 0
+		console.log(inputs.length);
+		inputs.length
 		inputs.forEach(input => {
 			if (input.classList.contains('success')) {
-				validate = true
+				validate++
+			} else if (!input.value) {
+				validate--
 			} else {
-				validate = false
+				validate--
 			}
 		})
 		if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')
-			|| (e.target.classList.contains('form-btn') && validate)) {
-			console.log(validate);
+			|| (e.target.classList.contains('form-btn') && validate === inputs.length)) {
 			widthScreen >= '768' ? closeModal() : modal.style.display = ''
 		}
 	})

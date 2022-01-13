@@ -60,7 +60,7 @@ const validation = () => {
 	inputPhone.forEach(item => {
 		item.value = ''
 		item.addEventListener('change', () => {
-			if (!regPhone.test(item.value)) {
+			if (!regPhone.test(item.value) || inputPhone.value) {
 				alert('Некорректный номер телефона')
 				item.value = ''
 			}

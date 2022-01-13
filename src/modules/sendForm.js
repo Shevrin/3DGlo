@@ -47,9 +47,7 @@ const sendForm = ({ formId, someElement = [] }) => {
 		return fetch('https://jsonplaceholder.typicode.com/posts', {
 			method: 'POST',
 			body: JSON.stringify(data),
-			// body: data,
 			headers: {
-				// 'Content-type': 'multipart/form-data'
 				'Content-type': 'application/json; charset=UTF-8',
 			}
 		}).then((res) => res.json())
@@ -60,8 +58,6 @@ const sendForm = ({ formId, someElement = [] }) => {
 		const formData = new FormData(form)
 		const formBody = {}
 
-
-		// statusBlock.textContent = loadText
 		form.append(statusBlock)
 
 		formData.forEach((val, key) => {

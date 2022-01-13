@@ -8,7 +8,7 @@ import slider from './modules/slider'
 import sendForm from './modules/sendForm'
 import scroll from './modules/scroll'
 
-const deadline = '13 january 2022 00:00'
+const deadline = '14 january 2022 00:00'
 const price = 100
 const scrollBtn = document.querySelector('a[href="#service-block"]')
 const menuItems = document.querySelector('menu').querySelectorAll('ul>li>a')

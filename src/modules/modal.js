@@ -28,6 +28,10 @@ const modal = () => {
 	}
 
 	const closeModal = () => {
+		inputs.forEach(input => {
+			input.classList.remove('success')
+			input.value = ''
+		})
 		console.log('close');
 		animate({
 			duration: 130,
@@ -64,11 +68,13 @@ const modal = () => {
 		inputs.forEach(input => {
 			if (input.classList.contains('success')) {
 				validate = true
+			} else {
+				validate = false
 			}
 		})
 		if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')
 			|| (e.target.classList.contains('form-btn') && validate)) {
-
+			console.log(validate);
 			widthScreen >= '768' ? closeModal() : modal.style.display = ''
 		}
 	})
